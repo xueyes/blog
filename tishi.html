@@ -1,0 +1,110 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>墨鱼部落格商业程序演示页面</title>
+<style>
+body{margin: 0;padding: 0;font-family: 'microsoft yahei';font-size: 14px;overflow: hidden;}
+a {text-decoration: none;}
+#previewbar{background-color: #444;color: #eee;height: 48px;line-height: 48px;position: relative;z-index: 9}
+#previewlogo{float: left;padding: 0 20px 0 180px;position: relative;background: url(http://iis.99yuanma.net:8888/demo-logo.png) no-repeat 20px 50%;}
+#previewtitle{float: right;padding: 0 20px;position: relative;}
+#previewtitle i{position: relative;top: -2px;margin-left: 5px;display: inline-block;border-left: 5px solid transparent;border-right: 5px solid transparent;border-top: 5px solid #fff;}
+#previewtitle:hover{background-color: #333;}
+#previewtitle:hover #previewlist{display: block;}
+#previewlist{position: absolute;top: 48px;left: 0;width: 120%;background-color: #333;display: none;}
+#previewlist ul{list-style: none;margin: 0;padding: 5px 0;}
+#previewlist ul a{color: #eee;padding: 0 20px;line-height: 36px;font-size: 12px;text-decoration: none;display: block;}
+#previewlist ul a:hover{color: #fff;background-color: #222;}
+#previewaction{float: right;}
+#previewaction a{display: inline-block;padding: 0 30px;color: #fff;background-color: #00BE3C;text-decoration: none;}
+#previewaction a:hover{background-color: #1AC550;}
+#previewframe{position: absolute;top: 48px;bottom: 0;left: 0;right: 0;}
+#previewframe iframe{border: 0;width: 100%;height: 100%;margin: 0;position: absolute;top: 0;bottom: 0;left: 0;right: 0;}
+
+</style>
+<script src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script> 
+<script type="text/javascript">
+var bForcepc = fGetQuery("dv") == "pc";
+function fBrowserRedirect(){
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";        
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+        if(bIsIpad){
+                var sUrl = location.href;    
+                if(!bForcepc){
+                        window.location.href = "/index.html";
+                }
+        }
+        if(bIsIphoneOs || bIsAndroid){
+                var sUrl = location.href;    
+                if(!bForcepc){
+                        window.location.href = "/index.html";
+                }
+        }
+        if(bIsMidp||bIsUc7||bIsUc||bIsCE||bIsWM){
+                var sUrl = location.href;    
+                if(!bForcepc){
+                        window.location.href = "/index.html";
+                }
+        }
+}
+function fGetQuery(name){//获取参数值
+        var sUrl = window.location.search.substr(1);
+        var r = sUrl.match(new RegExp("(^|&)" + name + "=([^&]*)(&|$)"));
+        return (r == null ? null : unescape(r[2]));
+}
+function fShowVerBlock(){        
+        if(bForcepc){
+                document.getElementById("dv_block").style.display = "block";
+        }
+        else{
+                document.getElementById("ad_block").style.display = "block";
+        }
+}
+fBrowserRedirect();
+</script>
+</head>
+<body>
+<div id="previewbar">
+<div id="previewlogo">此演示地址为<a style=" color:#F00; font-size:18px;" href="http://moyu2013.taobao.com/" target="_blank">墨鱼部落格淘宝店</a>专用演示站点，源码均包升级，有售后！请朋友认准本店，防止被盗卖者忽悠!此广告条正式源码内不显示！</div>
+	<div id="previewaction">
+		<a href="/index.html">关闭广告条</a>
+	</div>
+	<div id="previewtitle">购买地址<i></i>
+		<div id="previewlist">
+			<ul>
+				<li><a href="http://moyu2013.taobao.com" target="_blank">进入墨鱼淘宝店</a></li>
+              <li><a href="http://www.moyublog.com/studio/" target="_blank">进入墨鱼工作室</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="previewframe">
+	<iframe src="/index.html" frameborder="0"></iframe>
+</div>
+<div style="display:none">
+
+</div>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
